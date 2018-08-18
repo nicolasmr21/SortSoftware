@@ -7,6 +7,9 @@ import java.util.Set;
 
 import javax.swing.JFrame;
 
+import model.Coprocessor;
+import model.Generator;
+
 //Hellow
 public class AppFrame extends JFrame {
 	
@@ -14,7 +17,7 @@ public class AppFrame extends JFrame {
 	private InsertPanel insertion;
 	private GeneratePanel generator;
 	private SortDialog dialog;
-	
+	private Coprocessor coprocessor;
 	
 	public AppFrame()  {
 		
@@ -24,6 +27,9 @@ public class AppFrame extends JFrame {
 		setBackground(Color.black);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		startMenu();
+		coprocessor = new Coprocessor();
+		coprocessor.setGenerator(new Generator(29, 14, 43, true));
+		coprocessor.getGenerator().imprimir(coprocessor.getGenerator().randomOrdered());
 		
 	}
 	
