@@ -28,8 +28,8 @@ public class AppFrame extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		startMenu();
 		coprocessor = new Coprocessor();
-		coprocessor.setGenerator(new Generator(29, 14, 43, true));
-		coprocessor.getGenerator().imprimir(coprocessor.getGenerator().randomOrdered());
+		coprocessor.setGenerator(new Generator(20, 14, 75, false));
+		coprocessor.getGenerator().imprimir(coprocessor.getGenerator().percentOrderRepeated(0.5));
 		
 	}
 	
@@ -78,7 +78,7 @@ public class AppFrame extends JFrame {
 	public static void main(String[] args) {
 		
 		AppFrame app = new AppFrame();
-		app.setVisible(true);
+		//app.setVisible(true);
 		
 	}
 

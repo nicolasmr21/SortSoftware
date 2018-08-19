@@ -2,16 +2,14 @@ package model;
 
 public class Generator {
 
-	public Generator(int nElements, int floor, int roof, boolean repeated) {
+	public Generator(int nElements, int floor, int roof) {
 		this.nElements = nElements;
 		this.floor = floor;
 		this.roof = roof;
-		this.repeated = repeated;
 	}
 	private int nElements; 			// # of elements
 	private int floor; 				// Interval's beginning 
 	private int roof; 				// Interval's end
-	private boolean repeated;		// if the numbers can be repeated
 	
 	public int[] alreadyOrdered()
 	{
@@ -20,12 +18,21 @@ public class Generator {
 		int sum = (int)(Math.random()*jumpFactor);
 		array[0] = floor + sum;		
 		for (int i = 1; i < array.length; i++) {
+			sum = (int)(Math.random()*(jumpFactor-1))+1;
 			array[i] = array[i-1]+sum;
-			sum = (int)(Math.random()*jumpFactor)+1;
-			if(repeated)
-			{
-				sum -=1;
-			}
+		}
+		return array;
+	}
+	
+	public int[] alreadyOrderedRepeated()
+	{
+		double jumpFactor = (roof-floor)/nElements;
+		int[] array = new int[nElements];
+		int sum = (int)(Math.random()*jumpFactor);
+		array[0] = floor + sum;		
+		for (int i = 1; i < array.length; i++) {
+			sum = (int)(Math.random()*jumpFactor);
+			array[i] = array[i-1]+sum;
 		}
 		return array;
 	}
@@ -37,12 +44,21 @@ public class Generator {
 		int sum = (int)(Math.random()*jumpFactor);
 		array[array.length-1] = floor + sum;
 		for (int i = array.length-2; i > -1; i--) {
+			sum = (int)(Math.random()*(jumpFactor-1))+1;
 			array[i] = array[i+1]+sum;
-			sum = (int)(Math.random()*jumpFactor)+1;
-			if(repeated)
-			{
-				sum -=1;
-			}
+		}
+		return array;
+	}
+	
+	public int[] reverseOrderedRepeated()
+	{
+		double jumpFactor = (roof-floor)/nElements;
+		int[] array = new int[nElements];
+		int sum = (int)(Math.random()*jumpFactor);
+		array[array.length-1] = floor + sum;
+		for (int i = array.length-2; i > -1; i--) {
+			sum = (int)(Math.random()*jumpFactor);
+			array[i] = array[i+1]+sum;
 		}
 		return array;
 	}
@@ -88,4 +104,30 @@ public class Generator {
 			System.out.println(arr[i]);
 		}
 	}
+	
+	public int[] percentOrder(double percentage)
+	{
+		int[] array = alreadyOrdered();
+		imprimir(array);
+		int pairs = (int)(array.length*percentage)/2;
+		for (int i = 0; i < pairs; i++) {
+			int temp = array[i];
+			array[i] = array[array.length-i-1];
+			array[array.length-i-1] = temp;
+		}
+		return array;
+	}
+	
+	public int[] percentOrderRepeated(double percentage)
+	{
+		int[] array = alreadyOrderedRepeated();
+		int pairs = (int)(array.length*percentage)/2;
+		for (int i = 0; i < pairs; i++) {
+			int temp = array[i];
+			array[i] = array[array.length-i-1];
+			array[array.length-i-1] = temp;
+		}
+		return array;
+	}
+	
 }
