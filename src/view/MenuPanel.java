@@ -31,14 +31,14 @@ public class MenuPanel extends JPanel implements ActionListener {
 		setBackground(Color.black);
 
 		
-		labBanner = new JLabel(new ImageIcon("image/banner.jpg"));
+		labBanner = new JLabel(new ImageIcon("image/banner.png"));
 		labBanner.setAlignmentX(CENTER_ALIGNMENT);
 		add(labBanner);
 		labBanner.setLayout(new BoxLayout(labBanner, BoxLayout.PAGE_AXIS));
-		labBanner.add(Box.createVerticalStrut(250));
+		labBanner.add(Box.createVerticalStrut(320));
 		butInsert = new JButton("Insertar Manuelmente");
 		butInsert.setForeground(Color.WHITE);
-		butInsert.setFont(new Font("Serif", Font.BOLD, 60));
+		butInsert.setFont(new Font("Serif", Font.BOLD, 50));
 		butInsert.addActionListener(this);
 		butInsert.setActionCommand("INSERTAR");
 		butInsert.setBorder(null);
@@ -46,10 +46,10 @@ public class MenuPanel extends JPanel implements ActionListener {
 		butInsert.setAlignmentX(CENTER_ALIGNMENT);
 		labBanner.add(butInsert);
 		
-		labBanner.add(Box.createVerticalStrut(80));
+		labBanner.add(Box.createVerticalStrut(50));
 		butGenerate = new JButton ("Generar Aleatoriamente ");
 		butGenerate.setForeground(Color.WHITE);
-		butGenerate.setFont(new Font("Serif", Font.BOLD, 60));
+		butGenerate.setFont(new Font("Serif", Font.BOLD, 50));
 		butGenerate.addActionListener(this);
 		butGenerate.setActionCommand("GENERAR");
 		butGenerate.setBorder(null);

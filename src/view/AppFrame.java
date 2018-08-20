@@ -1,11 +1,16 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.HeadlessException;
 import java.util.Set;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
 
 import model.Coprocessor;
 import model.Generator;
@@ -26,6 +31,7 @@ public class AppFrame extends JFrame {
 		setBackground(Color.black);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		startMenu();
 		coprocessor = new Coprocessor();
@@ -71,6 +77,7 @@ public class AppFrame extends JFrame {
 		generator.setVisible(true);	
 		
 	}
+	
 	
 	
 	public void generateAlreadyOrdered(int nElements, int floor, int roof) {

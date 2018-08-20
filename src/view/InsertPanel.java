@@ -13,6 +13,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
@@ -120,9 +121,12 @@ public class InsertPanel extends JPanel implements ActionListener{
 			frame.startMenu();
 		}
 		else if(command.equals("AGREGAR")) {
+			
+			
 			String s = txtNum.getValue().toString();
 			int n = Integer.parseInt(s);
 			txtValues.setText(txtValues.getText()+n+"-");
+			
 		}
 		else if(command.equals("ORDENAR")) {
 			String[] ar = txtValues.getText().split("-");
