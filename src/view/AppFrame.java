@@ -10,7 +10,6 @@ import javax.swing.JFrame;
 import model.Coprocessor;
 import model.Generator;
 
-//Hellow
 public class AppFrame extends JFrame {
 	
 	private MenuPanel menu;
@@ -26,10 +25,10 @@ public class AppFrame extends JFrame {
 		setLocationRelativeTo(null);
 		setBackground(Color.black);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(false);
+		
 		startMenu();
 		coprocessor = new Coprocessor();
-		coprocessor.setGenerator(new Generator(20, 14, 75, false));
-		coprocessor.getGenerator().imprimir(coprocessor.getGenerator().percentOrderRepeated(0.5));
 		
 	}
 	
@@ -72,14 +71,71 @@ public class AppFrame extends JFrame {
 		generator.setVisible(true);	
 		
 	}
-
+	
+	
+	public void generateAlreadyOrdered(int nElements, int floor, int roof) {
+		coprocessor.setGenerator(new Generator(nElements, floor, roof));
+		
+		if(dialog.getCheckRepeat().isSelected()) {
+			coprocessor.getGenerator().setArray(coprocessor.getGenerator().alreadyOrderedRepeated());
+		}
+		else {
+			coprocessor.getGenerator().setArray(coprocessor.getGenerator().alreadyOrdered());	
+		}
+		dialog.setVisible(false);
+		startGenerator();
+	}
+	
+	public void generateInvOrderer(int nElements, int floor, int roof) {
+		coprocessor.setGenerator(new Generator(nElements, floor, roof));
+		
+		if(dialog.getCheckRepeat().isSelected()) {
+			coprocessor.getGenerator().setArray(coprocessor.getGenerator().reverseOrderedRepeated());
+		}
+		else {	
+			coprocessor.getGenerator().setArray(coprocessor.getGenerator().reverseOrdered());
+		}
+		dialog.setVisible(false);
+		startGenerator();
+	}
+	
+	public void generateRandom(int nElements, int floor, int roof) {
+		coprocessor.setGenerator(new Generator(nElements, floor, roof));
+		
+		if(dialog.getCheckRepeat().isSelected()) {
+			coprocessor.getGenerator().setArray(coprocessor.getGenerator().randomOrderedRepeated());
+		}
+		else {
+			coprocessor.getGenerator().setArray(coprocessor.getGenerator().randomOrdered());
+		}
+		dialog.setVisible(false);
+		startGenerator();
+	}
+	
+	public void generatePercentOrdered(int nElements, int floor, int roof, int percent) {
+		coprocessor.setGenerator(new Generator(nElements, floor, roof));
+		
+		if(dialog.getCheckRepeat().isSelected()) {
+			coprocessor.getGenerator().setArray(coprocessor.getGenerator().percentOrderRepeated(percent));
+		}
+		else {
+			coprocessor.getGenerator().setArray(coprocessor.getGenerator().percentOrder(percent));
+		}
+		dialog.setVisible(false);
+		startGenerator();
+	}
 
 
 	public static void main(String[] args) {
-		
 		AppFrame app = new AppFrame();
-		//app.setVisible(true);
-		
+		app.setVisible(true);
 	}
+
+
+	public Coprocessor getCoprocessor() {
+		return coprocessor;
+	}
+	
+	
 
 }

@@ -1,15 +1,19 @@
 package model;
 
 public class Generator {
-
+	
+	private int nElements; 			// # of elements
+	private int floor; 				// Interval's beginning 
+	private int roof; 				// Interval's end
+	private int[] array;
+	
 	public Generator(int nElements, int floor, int roof) {
 		this.nElements = nElements;
 		this.floor = floor;
 		this.roof = roof;
 	}
-	private int nElements; 			// # of elements
-	private int floor; 				// Interval's beginning 
-	private int roof; 				// Interval's end
+	
+
 	
 	public int[] alreadyOrdered()
 	{
@@ -98,17 +102,18 @@ public class Generator {
 		return array;
 	}
 	
-	public void imprimir(int[] arr)
+	public String concatenar(int[] arr)
 	{
+		String arreglo = "";
 		for (int i = 0; i < arr.length; i++) {
-			System.out.println(arr[i]);
+			arreglo+=arr[i]+"-";
 		}
+		return arreglo;
 	}
 	
 	public int[] percentOrder(double percentage)
 	{
 		int[] array = alreadyOrdered();
-		imprimir(array);
 		int pairs = (int)(array.length*percentage)/2;
 		for (int i = 0; i < pairs; i++) {
 			int temp = array[i];
@@ -128,6 +133,18 @@ public class Generator {
 			array[array.length-i-1] = temp;
 		}
 		return array;
+	}
+
+
+
+	public int[] getArray() {
+		return array;
+	}
+
+
+
+	public void setArray(int[] array) {
+		this.array = array;
 	}
 	
 }

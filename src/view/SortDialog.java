@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
@@ -144,9 +145,91 @@ public class SortDialog extends JDialog implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		String command = e.getActionCommand();
+		
+		int n = Integer.parseInt(size.getValue().toString()); 
+		int nfrom = Integer.parseInt(from.getValue().toString());
+		int nto = Integer.parseInt(to.getValue().toString());
+		
+		if(command.equals("GENERAR")) {
+			
+			if(n>0) {
+				
+				if(nto>0) {
+					
+					if(!checkRepeat.isSelected()&&nto-nfrom+1<n) {
+						JOptionPane.showMessageDialog(this, "El numero de elementos es muy grande para el intervalov"
+								+ " ya que no se pueden repetir lo numeros");
+					}
+					else {
+						
+						if(checkSorted.isSelected()&&!checkInvSorted.isSelected()
+						&&!checkPercentSorted.isSelected()&&!checkRamdon.isSelected()) {
+							
+							frame.generateAlreadyOrdered(n, nfrom, nto);
+							
+							
+						}
+						else if(!checkSorted.isSelected()&&checkInvSorted.isSelected()
+								&&!checkPercentSorted.isSelected()&&!checkRamdon.isSelected()) {
+							
+							frame.generateInvOrderer(n, nfrom, nto);
+							
+						}
+						else if(!checkSorted.isSelected()&&!checkInvSorted.isSelected()
+								&&checkPercentSorted.isSelected()&&!checkRamdon.isSelected()) {
+									
+							try {
+							String s = JOptionPane.showInputDialog(this, "Introduzca el porcentaje de desorden requerido en enteros");
+							int percent = Integer.parseInt(s.trim());
+							if(percent>0&&percent<=100) {
+							frame.generatePercentOrdered(n, nfrom, nto, percent/100);
+							}
+							else {
+								JOptionPane.showMessageDialog(this, "Porcentaje no valido");	
+							}
+							}
+							catch(Exception s1){
+								JOptionPane.showMessageDialog(this, "Escriba un numero valido");
+							}
+									
+						}
+						else if(!checkSorted.isSelected()&&!checkInvSorted.isSelected()
+								&&!checkPercentSorted.isSelected()&&checkRamdon.isSelected()) {
+							
+							frame.generateRandom(n, nfrom, nto);
+							
+						}
+						else {
+							JOptionPane.showMessageDialog(this, "Elija solo una opcion");
+						}
+						
+					}
+					
+				}
+				else {
+					JOptionPane.showMessageDialog(this, "Introduzca un intervalo de elementos minimo de tamaño 1");
+				}
+				
+			}
+			else {
+				JOptionPane.showMessageDialog(this, "Introduzca un numero de elementos valido");
+			}
+			
+			
+			
+		}
 		
 	}
+
+
+
+	public JCheckBox getCheckRepeat() {
+		return checkRepeat;
+	}
+
+
+
 	
 	
 }
