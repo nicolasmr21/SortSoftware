@@ -30,17 +30,19 @@ public class GeneratePanel extends JPanel implements ActionListener{
 		setSize(800, 800);
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		setAlignmentX(CENTER_ALIGNMENT);
-		setBackground(Color.black);
+		setBackground(Color.WHITE);
 		
 		add(Box.createVerticalStrut(10));
 		labValues = new JLabel("Valores generados Aleatoriamente");
-		labValues.setForeground(Color.WHITE);
+		labValues.setForeground(Color.blue);
 		labValues.setAlignmentX(CENTER_ALIGNMENT);
 		labValues.setFont(new Font("Serif", Font.BOLD, 40));
 		add(labValues); 
 		
 		add(Box.createVerticalStrut(50));
 		txtValues = new JTextArea(5, 20);
+		txtValues.setEditable(false);
+		txtValues.setText(frame.getCoprocessor().getGenerator().concatenar(frame.getCoprocessor().getGenerator().getArray()));
 		txtValues.setLineWrap(true);
 		txtValues.setFont(new Font("Serif", Font.PLAIN, 15));
 		txtValues.setBackground(Color.WHITE);
