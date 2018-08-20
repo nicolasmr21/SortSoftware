@@ -10,7 +10,6 @@ import javax.swing.JFrame;
 import model.Coprocessor;
 import model.Generator;
 
-//Hellow
 public class AppFrame extends JFrame {
 	
 	private MenuPanel menu;
@@ -28,7 +27,7 @@ public class AppFrame extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		startMenu();
 		coprocessor = new Coprocessor();
-		coprocessor.setGenerator(new Generator(20, 14, 75, false));
+		coprocessor.setGenerator(new Generator(20, 14, 75));
 		coprocessor.getGenerator().imprimir(coprocessor.getGenerator().percentOrderRepeated(0.5));
 		
 	}
