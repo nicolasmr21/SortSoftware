@@ -15,6 +15,7 @@ import javax.swing.JProgressBar;
 import model.Coprocessor;
 import model.Generator;
 
+//PRINCIPAL FRAME
 public class AppFrame extends JFrame {
 	
 	private MenuPanel menu;
