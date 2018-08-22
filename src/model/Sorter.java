@@ -96,7 +96,7 @@ public class Sorter {
 			countSort(arr, n, exp);
 	}
 	
-	public void quicksort(int array[], int left, int right) 
+	private void quicksort(int array[], int left, int right) 
 	{
 		int pivot=array[left];
 		int i=left;
