@@ -57,7 +57,7 @@ public class Sorter {
 		
 	}
 	
-	public int getMax(int arr[], int n)
+	private int getMax(int arr[], int n)
 	{
 		int mx = arr[0];
 		for (int i = 1; i < n; i++)
@@ -66,7 +66,7 @@ public class Sorter {
 		return mx;
 	}
 	
-	public void countSort(int arr[], int n, int exp)
+	private void countSort(int arr[], int n, int exp)
 	{
 		int output[] = new int[n];
 		int i;
@@ -89,7 +89,7 @@ public class Sorter {
 			arr[i] = output[i];
 	}
 	
-	public void radixsort(int arr[], int n)
+	private void radixsort(int arr[], int n)
 	{
 		int m = getMax(arr, n);
 		for (int exp = 1; m/exp > 0; exp *= 10)
@@ -132,7 +132,7 @@ public class Sorter {
 		}
 	}
 
-	public void countingsort(int[] array) {
+	private void countingsort(int[] array) {
 		int[] aux = new int[array.length];
 
 		int min = array[0];
