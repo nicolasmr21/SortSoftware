@@ -146,4 +146,22 @@ public class Generator {
 	public void setArray(int[] array) {
 		this.array = array;
 	}
+
+
+
+	public int getnElements() {
+		return nElements;
+	}
+
+
+
+	public int getFloor() {
+		return floor;
+	}
+
+
+
+	public int getRoof() {
+		return roof;
+	}
 }

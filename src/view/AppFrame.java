@@ -14,6 +14,7 @@ import javax.swing.JProgressBar;
 
 import model.Coprocessor;
 import model.Generator;
+import model.Sorter;
 
 //PRINCIPAL FRAME
 public class AppFrame extends JFrame {
@@ -36,7 +37,6 @@ public class AppFrame extends JFrame {
 		
 		startMenu();
 		coprocessor = new Coprocessor();
-		
 	}
 	
 	
