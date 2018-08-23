@@ -10,6 +10,15 @@ public class Sorter {
 		this.floor = floor;
 		this.percentOrder = percentOrder;
 	}
+	
+	/**
+	 * This constructor will be used to manage operations that are not using attributes.
+	 * like calculate floor and calculate roof..
+	 */
+	
+	
+	public Sorter() {
+	}
 
 	private int[] array;
 	private int roof;
@@ -20,6 +29,31 @@ public class Sorter {
 	{
 		return array;
 	}
+	
+	
+	public int calculateFloor(int[] a) {
+		int nfloor = a[0];
+		
+		for (int i = 1; i < a.length; i++) {
+			if(nfloor>a[i])
+				nfloor = a[i];
+		}
+		
+		return nfloor;
+	}
+	
+	public int calculateRoof(int[] a) {
+		int nroof = a[0];
+		
+		for (int i = 1; i < a.length; i++) {
+			if(nroof<a[i])
+				nroof = a[i];
+		}
+		
+		return nroof;
+	}
+	
+	
 	
 	public void sort()
 	{

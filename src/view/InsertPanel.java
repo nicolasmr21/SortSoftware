@@ -125,7 +125,12 @@ public class InsertPanel extends JPanel implements ActionListener{
 			
 			String s = txtNum.getValue().toString();
 			int n = Integer.parseInt(s);
-			txtValues.setText(txtValues.getText()+n+"-");
+			if(n>0) {
+			txtValues.setText(txtValues.getText()+n+"-");}
+			else {
+				
+				JOptionPane.showMessageDialog(this, "Digitos positivos");
+			}
 			
 		}
 		else if(command.equals("ORDENAR")) {
@@ -134,8 +139,21 @@ public class InsertPanel extends JPanel implements ActionListener{
 			for (int i = 0; i < ar.length; i++) {
 				values[i] = Integer.parseInt(ar[i]);
 			}
+			
+			frame.sortManual(values);
 		}
 		
 	}
+
+
+	public JTextArea getTxtValues() {
+		return txtValues;
+	}
+
+
+	public void setTxtValues(JTextArea txtValues) {
+		this.txtValues = txtValues;
+	}
+	
 	
 }

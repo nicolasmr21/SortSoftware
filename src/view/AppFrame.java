@@ -121,7 +121,7 @@ public class AppFrame extends JFrame {
 	}
 	
 	public void generatePercentOrdered(int nElements, int floor, int roof, double percent) {
-		coprocessor.setGenerator(new Generator(nElements, floor, roof));
+		coprocessor.setGenerator(new Generator(nElements, floor, roof, percent));
 		
 		if(dialog.getCheckRepeat().isSelected()) {
 			coprocessor.getGenerator().setArray(coprocessor.getGenerator().percentOrderRepeated(((double)percent)/100));
@@ -133,6 +133,29 @@ public class AppFrame extends JFrame {
 		startGenerator();
 	}
 
+	
+	
+	public void sortGenerate() {
+		int floor = coprocessor.getGenerator().getFloor();
+		int roof = coprocessor.getGenerator().getRoof();
+		double percent = coprocessor.getGenerator().getPercent();
+		int a[]  = coprocessor.getGenerator().getArray();
+		coprocessor.setSorter(new Sorter(a, floor,
+				roof, percent));
+		coprocessor.getSorter().sort();
+		int values[]  = coprocessor.getSorter().getArray();
+		generator.getTxtValues().setText(coprocessor.concatenate(values));
+	}
+	
+	
+	public void sortManual(int[] a) {
+		coprocessor.setSorter(new Sorter());
+		coprocessor.setSorter(new Sorter(a, coprocessor.getSorter().calculateRoof(a),
+				coprocessor.getSorter().calculateFloor(a), 0));
+		coprocessor.getSorter().sort();
+		int values[]  = coprocessor.getSorter().getArray();
+		insertion.getTxtValues().setText(coprocessor.concatenate(values));
+	}
 
 	public static void main(String[] args) {
 		AppFrame app = new AppFrame();

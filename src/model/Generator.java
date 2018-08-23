@@ -5,6 +5,7 @@ public class Generator {
 	private int nElements; 			// # of elements
 	private int floor; 				// Interval's beginning 
 	private int roof; 				// Interval's end
+	private double percent;
 	private int[] array;
 	
 	public Generator(int nElements, int floor, int roof) {
@@ -13,7 +14,12 @@ public class Generator {
 		this.roof = roof;
 	}
 	
-
+	public Generator(int nElements, int floor, int roof, double percent) {
+		this.nElements = nElements;
+		this.floor = floor;
+		this.roof = roof;
+		this.percent = percent;
+	}
 	
 	public int[] alreadyOrdered()
 	{
@@ -102,14 +108,7 @@ public class Generator {
 		return array;
 	}
 	
-	public String concatenar(int[] arr)
-	{
-		String arreglo = "";
-		for (int i = 0; i < arr.length; i++) {
-			arreglo+=arr[i]+"-";
-		}
-		return arreglo;
-	}
+	
 	
 	public int[] percentOrder(double percentage)
 	{
@@ -151,6 +150,19 @@ public class Generator {
 
 	public int getnElements() {
 		return nElements;
+	}
+
+
+	
+
+	public double getPercent() {
+		return percent;
+	}
+
+
+
+	public void setPercent(double percent) {
+		this.percent = percent;
 	}
 
 

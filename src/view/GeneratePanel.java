@@ -42,7 +42,7 @@ public class GeneratePanel extends JPanel implements ActionListener{
 		add(Box.createVerticalStrut(50));
 		txtValues = new JTextArea(5, 20);
 		txtValues.setEditable(false);
-		txtValues.setText(frame.getCoprocessor().getGenerator().concatenar(frame.getCoprocessor().getGenerator().getArray()));
+		txtValues.setText(frame.getCoprocessor().concatenate(frame.getCoprocessor().getGenerator().getArray()));
 		txtValues.setLineWrap(true);
 		txtValues.setFont(new Font("Serif", Font.PLAIN, 15));
 		txtValues.setBackground(Color.WHITE);
@@ -87,8 +87,24 @@ public class GeneratePanel extends JPanel implements ActionListener{
 		if(command.equals("SALIR")) {
 			frame.startMenu();
 		}
+		if(command.equals("ORDENAR")) {
+			frame.sortGenerate();
+		}
 		
+				
 	}
+
+
+	public JTextArea getTxtValues() {
+		return txtValues;
+	}
+
+
+	public void setTxtValues(JTextArea txtValues) {
+		this.txtValues = txtValues;
+	}
+	
+	
 	
 	
 }
