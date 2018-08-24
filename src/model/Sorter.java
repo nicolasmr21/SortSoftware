@@ -48,42 +48,8 @@ public class Sorter {
 		return array;
 	}
 	
-	/**
-	 * 	This method is responsible for calculating the smallest value of the generated array.
-	 * 
-	 * @param a of type array container of the generated values.
-	 * @return nfloor of type int.
-	 */
 	
-	public int calculateFloor(int[] a) {
-		int nfloor = a[0];
-		
-		for (int i = 1; i < a.length; i++) {
-			if(nfloor>a[i])
-				nfloor = a[i];
-		}
-		
-		return nfloor;
-	}
-	
-	/**
-	 * 	This method is responsible for calculating the largest value of the generated array.
-	 * 
-	 * @param a of type array container of the generated values.
-	 * @return nroof of type int.
-	 */
-	
-	public int calculateRoof(int[] a) {
-		int nroof = a[0];
-		
-		for (int i = 1; i < a.length; i++) {
-			if(nroof<a[i])
-				nroof = a[i];
-		}
-		
-		return nroof;
-	}
-	
+
 	/**
 	 * This method is responsible for selecting the most relevant method according to the amount
 	 * of data, the percentage of disorder and their range.
@@ -178,7 +144,7 @@ public class Sorter {
 	 * @param n of type int.
 	 */
 	
-	private void radixsort(int arr[], int n)
+	public void radixsort(int arr[], int n)
 	{
 		int m = getMax(arr, n);
 		for (int exp = 1; m/exp > 0; exp *= 10)
@@ -194,7 +160,7 @@ public class Sorter {
 	 * @param right the int type that indicates that the shorter values to the pivot go to the left
 	 */
 	
-	private void quicksort(int array[], int left, int right) 
+	public void quicksort(int array[], int left, int right) 
 	{
 		int pivot=array[left];
 		int i=left;
@@ -237,7 +203,7 @@ public class Sorter {
 	 * @param array type array that enters as a parameter for the realization of order.
 	 */
 	
-	private void countingsort(int[] array) {
+	public void countingsort(int[] array) {
 		int[] aux = new int[array.length];
 
 		int min = array[0];
@@ -267,4 +233,37 @@ public class Sorter {
 		
 		this.array = aux;
 	}
+	
+	
+	/**
+	 * 	This method is responsible for calculating the smallest value of the generated array.
+	 * 
+	 * @param a of type array container of the generated values.
+	 * @return nfloor of type int.
+	 */
+	
+	public int calculateFloor(int[] a) {
+		int nfloor = a[0];
+		
+		for (int i = 1; i < a.length; i++) {
+			if(nfloor>a[i])
+				nfloor = a[i];
+		}
+		
+		return nfloor;
+	}
+	
+	
+	
+	public int calculateRoof(int[] a) {
+		int nroof = a[0];
+		
+		for (int i = 1; i < a.length; i++) {
+			if(nroof<a[i])
+				nroof = a[i];
+		}
+		
+		return nroof;
+	}
+	
 }
