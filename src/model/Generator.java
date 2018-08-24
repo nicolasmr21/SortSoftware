@@ -1,12 +1,33 @@
 package model;
 
+/**
+
+ * This class is in charge of the generation of both int and floating point
+ * values ​​in the different modes that the company requests.
+ * @author: Nicolas Martinez - Cristian Molina - Juan Manuel Castillo.
+ * 
+
+ * @version: 23/08/2018 A
+
+
+ */
+
 public class Generator {
 	
-	private int nElements; 			// # of elements
-	private int floor; 				// Interval's beginning 
-	private int roof; 				// Interval's end
+	private int nElements; 			
+	private int floor; 				
+	private int roof; 				
 	private double percent;
 	private int[] array;
+	
+	/**
+	 * This method is in charge of giving construction to a new generation of values ​​with nelements, 
+	 * a floor and a roof.
+	 * 
+	 * @param nElements of type int with the amount of values to generate 
+	 * @param floor of type int with the smallest value of the generated
+	 * @param roof of type int with the largest value of the generated
+	 */
 	
 	public Generator(int nElements, int floor, int roof) {
 		this.nElements = nElements;
@@ -14,12 +35,28 @@ public class Generator {
 		this.roof = roof;
 	}
 	
+	/**
+	 * This method is in charge of giving construction to a new generation of values ​​with nelements, 
+	 * a floor and a roof and the percentage of disorder.
+	 * 
+	 * @param nElements of type int with the amount of values to generate 
+	 * @param floor of type int with the smallest value of the generated
+	 * @param roof of type int with the largest value of the generated
+	 * @param percentage of double type with the characteristic of indicating the disorder of the values
+	 */
+	
 	public Generator(int nElements, int floor, int roof, double percent) {
 		this.nElements = nElements;
 		this.floor = floor;
 		this.roof = roof;
 		this.percent = percent;
 	}
+	
+	/**
+	 * This method is responsible for generating int and floating-point values in an orderly fashion
+	 *  by returning an array with the ordering performed.
+	 *  @return array of type array
+	 */
 	
 	public int[] alreadyOrdered()
 	{
@@ -34,6 +71,12 @@ public class Generator {
 		return array;
 	}
 	
+	/**
+	 * This method is responsible for generating int and floating point values in an orderly manner 
+	 * with the possibility of repeating an array returning with the ordering performed.
+	 *  @return array of type array
+	 */
+	
 	public int[] alreadyOrderedRepeated()
 	{
 		double jumpFactor = (roof-floor)/nElements;
@@ -46,6 +89,12 @@ public class Generator {
 		}
 		return array;
 	}
+	
+	/**
+	 * This method is responsible for generating int and floating point values in an orderly manner 
+	 * inversely returning an array with the ordering performed.
+	 *  @return array of type array
+	 */
 	
 	public int[] reverseOrdered()
 	{
@@ -60,6 +109,12 @@ public class Generator {
 		return array;
 	}
 	
+	/**
+	 * This method is responsible for generating int and floating point values in an order inversely 
+	 * with the possibility of repeating values by returning an array with the ordering performed.
+	 *  @return array of type array
+	 */
+	
 	public int[] reverseOrderedRepeated()
 	{
 		double jumpFactor = (roof-floor)/nElements;
@@ -73,6 +128,12 @@ public class Generator {
 		return array;
 	}
 	
+	/**
+	 * This method is responsible for generating int and floating point values in a random way with the 
+	 * possibility of repeating values by returning an array with the ordering performed.
+	 *  @return array of type array
+	 */
+	
 	public int[] randomOrderedRepeated()
 	{
 		int[] array = new int[nElements];
@@ -81,6 +142,12 @@ public class Generator {
 		}
 		return array;
 	}
+	
+	/**
+	 * This method is responsible for generating int and floating point values in a random way by returning 
+	 * an array with the ordering made.
+	 *  @return array of type array
+	 */
 	
 	public int[] randomOrdered()
 	{
@@ -108,7 +175,13 @@ public class Generator {
 		return array;
 	}
 	
-	
+	/**
+	 * This method is responsible for generating int and floating point values in an orderly manner with a 
+	 * percentage of disorder in the values returning an array with the ordering performed.
+	 * 
+	 * @param percentage of double type with the characteristic of indicating the disorder of the values.
+	 *  @return array of type array.
+	 */
 	
 	public int[] percentOrder(double percentage)
 	{
@@ -121,6 +194,15 @@ public class Generator {
 		}
 		return array;
 	}
+	
+	/**
+	 * This method is responsible for generating int and floating point values in an orderly manner with 
+	 * a percentage of clutter with the possibility of repeating the values, returning an array with the 
+	 * ordering performed.
+	 * 
+	 * @param percentage of double type with the characteristic of indicating the disorder of the values.
+	 * @return array of type array
+	 */
 	
 	public int[] percentOrderRepeated(double percentage)
 	{

@@ -1,5 +1,22 @@
 package model;
 
+/**
+
+ * This class is the one that carries out all kinds of orderings to the generated values depending on the amount of data
+ * among other variables.
+
+ * @author: Nicolas Martinez - Cristian Molina - Juan Manuel Castillo.
+
+ * @version: 23/08/2018 A
+
+ * @see <a href = "http://www.instagram.com/Nicolasmr21" /> Let us know what you can help us with – Nicolás Mártinez </a>
+ 
+ * @see <a href = "http://www.instagram.com/Juan17castillo" /> Let us know what you can help us with – Juan Manuel Castillo </a>
+
+ * @see <a href = "http://www.instagram.com/CristianMolina_10" /> Let us know what you can help us with – Cristian Molina </a>
+
+ */
+
 import java.util.Arrays;
 
 public class Sorter {
@@ -13,7 +30,8 @@ public class Sorter {
 	
 	/**
 	 * This constructor will be used to manage operations that are not using attributes.
-	 * like calculate floor and calculate roof..
+	 * like calculate floor and calculate roof.
+	 * 
 	 */
 	
 	
@@ -30,6 +48,12 @@ public class Sorter {
 		return array;
 	}
 	
+	/**
+	 * 	This method is responsible for calculating the smallest value of the generated array.
+	 * 
+	 * @param a of type array container of the generated values.
+	 * @return nfloor of type int.
+	 */
 	
 	public int calculateFloor(int[] a) {
 		int nfloor = a[0];
@@ -42,6 +66,13 @@ public class Sorter {
 		return nfloor;
 	}
 	
+	/**
+	 * 	This method is responsible for calculating the largest value of the generated array.
+	 * 
+	 * @param a of type array container of the generated values.
+	 * @return nroof of type int.
+	 */
+	
 	public int calculateRoof(int[] a) {
 		int nroof = a[0];
 		
@@ -53,7 +84,10 @@ public class Sorter {
 		return nroof;
 	}
 	
-	
+	/**
+	 * This method is responsible for selecting the most relevant method according to the amount
+	 * of data, the percentage of disorder and their range.
+	 */
 	
 	public void sort()
 	{
@@ -91,6 +125,13 @@ public class Sorter {
 		
 	}
 	
+	/**
+	 * This method is responsible for finding the largest number of the array
+	 * @param arr[] of type array.
+	 * @param n of type int.
+	 * @return mx of type int.
+	 */
+	
 	private int getMax(int arr[], int n)
 	{
 		int mx = arr[0];
@@ -99,6 +140,14 @@ public class Sorter {
 				mx = arr[i];
 		return mx;
 	}
+	
+	
+	/**
+	 * A function to do counting sort of arr[] according to the digit represented by exp.
+	 * @param arr[] of type array.
+	 * @param n of type int.
+	 * @param exp of type int.
+	 */
 	
 	private void countSort(int arr[], int n, int exp)
 	{
@@ -123,12 +172,27 @@ public class Sorter {
 			arr[i] = output[i];
 	}
 	
+	/**
+	 * This method is responsible for ordering whole numbers by processing their digits individually.
+	 * @param arr[] of type array.
+	 * @param n of type int.
+	 */
+	
 	private void radixsort(int arr[], int n)
 	{
 		int m = getMax(arr, n);
 		for (int exp = 1; m/exp > 0; exp *= 10)
 			countSort(arr, n, exp);
 	}
+	
+	/**
+	 * This algorithm is responsible for separating several times into smaller lists partially ordered
+	 * until you have lists of a single element that is already in the correct position.
+	 * 
+	 * @param array type array that enters as a parameter for the realization of order.
+	 * @param left the int type that indicates that the larger values to the pivot go to the right
+	 * @param right the int type that indicates that the shorter values to the pivot go to the left
+	 */
 	
 	private void quicksort(int array[], int left, int right) 
 	{
@@ -166,6 +230,13 @@ public class Sorter {
 		}
 	}
 
+	/**
+	 * This method is responsible for ordering the number of ints that have different values. 
+	 * Then, do some arithmetic to calculate the position of each object in the output sequence.
+	 * 
+	 * @param array type array that enters as a parameter for the realization of order.
+	 */
+	
 	private void countingsort(int[] array) {
 		int[] aux = new int[array.length];
 
